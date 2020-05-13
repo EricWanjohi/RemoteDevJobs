@@ -1,6 +1,7 @@
 package ke.co.droidsense.remotedev.adapter;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import es.dmoral.toasty.Toasty;
 import ke.co.droidsense.remotedev.R;
 import ke.co.droidsense.remotedev.model.RemoteOkResponse;
 
@@ -18,21 +20,31 @@ public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHo
     private List<RemoteOkResponse> remoteOkResponses;
     private Context context;
 
+    //Constructor...
+    public RemoteOkAdapter(List<RemoteOkResponse> remoteOkResponses, Context context) {
+        this.remoteOkResponses = remoteOkResponses;
+        this.context = context;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //Create View item...
-
-        return null;
+        View view = LayoutInflater.from( parent.getContext() )
+                .inflate( R.layout.remote_job_item_layout, parent, false );
+        return new ViewHolder( view );
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //Create Object holder...
+        RemoteOkResponse remoteOkResponse = remoteOkResponses.get( position );
 
         //Bind data
+        holder.position.setText( remoteOkResponse.getPosition() );
 
         //Set item tag
+        holder.itemView.setTag( remoteOkResponse );
 
     }
 
@@ -60,7 +72,9 @@ public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHo
         @Override
         public void onClick(View view) {
             //Handle click events...
+            RemoteOkResponse remoteOkResponse = (RemoteOkResponse) view.getTag();
 
+            Toasty.success( context, remoteOkResponse.getCompany(), Toasty.LENGTH_SHORT ).show();
         }
     }
 }
