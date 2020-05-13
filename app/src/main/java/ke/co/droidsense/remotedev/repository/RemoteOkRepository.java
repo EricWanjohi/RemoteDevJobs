@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 import ke.co.droidsense.remotedev.RemoteOkApi.RemoteOkApi;
 import ke.co.droidsense.remotedev.dao.RemoteOkDao;
 import ke.co.droidsense.remotedev.database.RemoteOkDb;
@@ -18,12 +20,12 @@ import retrofit2.Response;
 import timber.log.Timber;
 
 public class RemoteOkRepository {
-    private static RemoteOkRepository remoteOkRepository;
     //Member Variables...
+    private static RemoteOkRepository remoteOkRepository;
     private RemoteOkDb remoteOkDb;
     private RemoteOkDao remoteOkDao;
     private RemoteOkApi remoteOkApi;
-    private LiveData<RemoteOkResponse> remoteOkResponseLiveData = new MutableLiveData<>();
+    private LiveData<List<RemoteOkResponse>> remoteOkResponseLiveData;
 
     //RemoteOk Repository Constructor...
     private RemoteOkRepository(Context context) {
@@ -31,6 +33,7 @@ public class RemoteOkRepository {
         remoteOkDb = RemoteOkDb.getRemoteOkDbInstance( context );
         remoteOkDao = remoteOkDb.getRemoteOkDao();
         remoteOkApi = RetrofitClient.getRetrofit().create( RemoteOkApi.class );
+        remoteOkResponseLiveData = remoteOkDao.getAllRemoteOkJobs();
     }
 
     //Get RemoteOkRepository instance...
@@ -68,4 +71,6 @@ public class RemoteOkRepository {
 
         return okResponseMutableLiveData;
     }
+
+    /*____________________________   ______________________________**/
 }

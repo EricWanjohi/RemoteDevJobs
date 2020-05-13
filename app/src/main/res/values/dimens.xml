@@ -3,4 +3,8 @@
     <dimen name="padding16dp">16dp</dimen>
     <dimen name="margin16dp">16dp</dimen>
     <dimen name="margin0dp">0dp</dimen>
+    <dimen name="cornerRadius6dp">6dp</dimen>
+    <dimen name="headerTextSize18sp">18sp</dimen>
+    <dimen name="padding8dp">8dp</dimen>
+    <dimen name="margin1dp">1dp</dimen>
 </resources>
