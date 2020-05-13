@@ -51,6 +51,30 @@ public class RemoteOkResponse {
     @Expose
     private String url;
 
+    //Constructor...
+
+    public RemoteOkResponse(String legal, String slug, String id, String epoch, String date, String company, String companyLogo,
+                            String position, List<String> tags, String logo, String description, Boolean original,
+                            Boolean verified, String url) {
+        this.legal = legal;
+        this.slug = slug;
+        this.id = id;
+        this.epoch = epoch;
+        this.date = date;
+        this.company = company;
+        this.companyLogo = companyLogo;
+        this.position = position;
+        this.tags = tags;
+        this.logo = logo;
+        this.description = description;
+        this.original = original;
+        this.verified = verified;
+        this.url = url;
+    }
+
+
+    //Getters and Setters...
+
     public String getLegal() {
         return legal;
     }
