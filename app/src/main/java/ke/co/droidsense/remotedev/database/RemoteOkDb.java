@@ -5,10 +5,14 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import ke.co.droidsense.remotedev.dao.RemoteOkDao;
 import ke.co.droidsense.remotedev.model.RemoteOkResponse;
+import ke.co.droidsense.remotedev.typeConverter.RemoteOkResponseConverter;
+import ke.co.droidsense.remotedev.typeConverter.RemoteOkResponseTagsListConverter;
 
+@TypeConverters({RemoteOkResponseConverter.class, RemoteOkResponseTagsListConverter.class})
 @Database(entities = {RemoteOkResponse.class}, version = 1, exportSchema = false)
 public abstract class RemoteOkDb extends RoomDatabase {
 
@@ -21,7 +25,9 @@ public abstract class RemoteOkDb extends RoomDatabase {
         //Check if instance is null...
         if (INSTANCE == null) {
             //Create new Instance...
-            INSTANCE = Room.databaseBuilder( context, RemoteOkDb.class, Database ).build();
+            INSTANCE = Room.databaseBuilder( context, RemoteOkDb.class, Database )
+                    .fallbackToDestructiveMigration()
+                    .build();
         }
         return INSTANCE;
     }

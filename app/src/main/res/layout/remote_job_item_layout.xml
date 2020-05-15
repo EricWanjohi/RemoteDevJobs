@@ -18,24 +18,27 @@
             android:orientation="horizontal"
             android:weightSum="5">
 
-            <FrameLayout
-                android:layout_width="@dimen/width0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.5">
+            <!--            <FrameLayout-->
+            <!--                android:layout_width="@dimen/width0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_weight="1.5">-->
 
-                <ImageView
-                    android:id="@+id/company_logo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_launcher_background" />
-            </FrameLayout>
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/company_logo"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:layout_gravity="center"-->
+            <!--                    android:scaleType="centerCrop"-->
+            <!--                    android:src="@drawable/ic_launcher_background" />-->
+            <!--            </FrameLayout>-->
 
             <LinearLayout
                 android:layout_width="@dimen/width0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3.5"
-                android:orientation="vertical">
+                android:layout_weight="5"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/padding4dp"
+                android:paddingEnd="@dimen/padding4dp">
 
                 <TextView
                     android:id="@+id/remote_job_company"
@@ -44,11 +47,11 @@
                     android:ellipsize="end"
                     android:gravity="start"
                     android:maxLines="@integer/positionMaxLines2"
-                    android:padding="@dimen/padding8dp"
+                    android:padding="@dimen/padding4dp"
                     android:text="@string/companyNameText"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/headerTextSize16sp"
-                    android:textStyle="normal" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/remote_job_position"
@@ -56,12 +59,12 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:gravity="start"
-                    android:maxLines="@integer/positionMaxLines2"
-                    android:padding="@dimen/padding8dp"
+                    android:maxLines="@integer/positionMaxLines1"
+                    android:padding="@dimen/padding4dp"
                     android:text="@string/positionText"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/headerTextSize16sp"
-                    android:textStyle="normal" />
+                    android:textStyle="bold|italic" />
 
                 <TextView
                     android:id="@+id/remote_job_date"
@@ -70,7 +73,7 @@
                     android:ellipsize="end"
                     android:gravity="start"
                     android:maxLines="@integer/positionMaxLines2"
-                    android:padding="@dimen/padding8dp"
+                    android:padding="@dimen/padding4dp"
                     android:text="@string/datePostedText"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/headerTextSize16sp"

@@ -5,8 +5,6 @@ import android.content.Context;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 
 import ke.co.droidsense.remotedev.RemoteOkApi.RemoteOkApi;
@@ -47,14 +45,13 @@ public class RemoteOkRepository {
     }
 
     //Get Remote Jobs.
-    public MutableLiveData<RemoteOkResponse> getRemoteJobs() {
+    public MutableLiveData<List<RemoteOkResponse>> getRemoteJobs() {
         //Create data holder object...
-        MutableLiveData<RemoteOkResponse> okResponseMutableLiveData = new MutableLiveData<>();
+        MutableLiveData<List<RemoteOkResponse>> okResponseMutableLiveData = new MutableLiveData<>();
 
-        //Fetch data...
-        remoteOkApi.getAllRemoteOkJobs().enqueue( new Callback<RemoteOkResponse>() {
+        remoteOkApi.getAllRemoteOkJobs().enqueue( new Callback<List<RemoteOkResponse>>() {
             @Override
-            public void onResponse(@NotNull Call<RemoteOkResponse> call, @NotNull Response<RemoteOkResponse> response) {
+            public void onResponse(Call<List<RemoteOkResponse>> call, Response<List<RemoteOkResponse>> response) {
                 //Check if response is successful.
                 if (response.isSuccessful()) {
                     //Set data fetched to object...
@@ -63,7 +60,7 @@ public class RemoteOkRepository {
             }
 
             @Override
-            public void onFailure(@NotNull Call<RemoteOkResponse> call, @NotNull Throwable throwable) {
+            public void onFailure(Call<List<RemoteOkResponse>> call, Throwable throwable) {
                 //Handle error response.
                 Timber.e( throwable.getMessage() );
             }

@@ -2,20 +2,23 @@ package ke.co.droidsense.remotedev.viewModel;
 
 import android.app.Application;
 
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModel;
+
+import java.util.List;
 
 import ke.co.droidsense.remotedev.model.RemoteOkResponse;
 import ke.co.droidsense.remotedev.repository.RemoteOkRepository;
 
-public class RemoteOkViewModel extends ViewModel {
+public class RemoteOkViewModel extends AndroidViewModel {
     //Member Variables...
     private RemoteOkRepository remoteOkRepository;
-    private LiveData<RemoteOkResponse> remoteOkResponseLiveData;
+    private LiveData<List<RemoteOkResponse>> remoteOkResponseLiveData;
     private Application application;
 
     //Create Constructor...
     public RemoteOkViewModel(Application application) {
+        super( application );
         this.application = application;
 
         //Initialize ViewModel.
@@ -33,7 +36,7 @@ public class RemoteOkViewModel extends ViewModel {
     }
 
     //LiveData object getter
-    public LiveData<RemoteOkResponse> getRemoteOkResponseLiveData() {
+    public LiveData<List<RemoteOkResponse>> getRemoteOkResponseLiveData() {
         return remoteOkResponseLiveData;
     }
 }

@@ -4,13 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -19,8 +16,8 @@ import ke.co.droidsense.remotedev.R;
 import ke.co.droidsense.remotedev.model.RemoteOkResponse;
 
 public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHolder> {
-    private static final int MAX_WIDTH = 50;
-    private static final int MAX_HEIGHT = 50;
+    private static final int MAX_WIDTH = 40;
+    private static final int MAX_HEIGHT = 40;
     //Member Variables...
     private List<RemoteOkResponse> remoteOkResponses;
     private Context context;
@@ -51,10 +48,10 @@ public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHo
         holder.date_posted.setText( remoteOkResponse.getDate() );
 
         //Bind Logo image using Picasso...
-        Picasso.get().load( remoteOkResponse.getLogo() )
-                .resize( MAX_WIDTH, MAX_HEIGHT )
-                .centerCrop()
-                .into( holder.company_logo );
+//        Picasso.get().load( remoteOkResponse.getLogo() )
+//                .resize( MAX_WIDTH, MAX_HEIGHT )
+//                .centerCrop()
+//                .into( holder.company_logo );
 
         //Set item tag
         holder.itemView.setTag( remoteOkResponse );
@@ -70,7 +67,7 @@ public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         //Member Variables...
         private TextView company_name, position, date_posted;
-        private ImageView company_logo;
+//        private ImageView company_logo;
 
         //Constructor...
         public ViewHolder(@NonNull View itemView) {
@@ -80,7 +77,7 @@ public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHo
             company_name = itemView.findViewById( R.id.remote_job_company );
             position = itemView.findViewById( R.id.remote_job_position );
             date_posted = itemView.findViewById( R.id.remote_job_date );
-            company_logo = itemView.findViewById( R.id.company_logo );
+//            company_logo = itemView.findViewById( R.id.company_logo );
 
             //Set Click Listener.
             itemView.setOnClickListener( this );

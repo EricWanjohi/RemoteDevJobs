@@ -17,7 +17,7 @@ import static androidx.room.OnConflictStrategy.REPLACE;
 public interface RemoteOkDao {
 
     //Query All RemoteOkResponse objects.
-    @Query("SELECT * FROM RemoteOk")
+    @Query("SELECT * FROM RemoteOk ORDER BY (id) ASC ")
     LiveData<List<RemoteOkResponse>> getAllRemoteOkJobs();
 
     //Update Jobs...
