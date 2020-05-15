@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin1dp"
     android:background="@color/cardViewDark"
+    android:orientation="vertical"
     app:cardCornerRadius="@dimen/cornerRadius6dp">
 
     <RelativeLayout
@@ -13,6 +13,7 @@
         android:background="@color/cardViewDark">
 
         <LinearLayout
+            android:id="@+id/icon_and_company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -27,12 +28,15 @@
                     android:id="@+id/company_logo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_launcher_background" />
+
+
             </FrameLayout>
 
             <LinearLayout
-                android:layout_width="@dimen/width0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="3.5"
                 android:orientation="vertical">
@@ -48,7 +52,7 @@
                     android:text="@string/companyNameText"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/headerTextSize16sp"
-                    android:textStyle="normal" />
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/remote_job_position"
@@ -61,7 +65,7 @@
                     android:text="@string/positionText"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/headerTextSize16sp"
-                    android:textStyle="normal" />
+                    android:textStyle="italic" />
 
                 <TextView
                     android:id="@+id/remote_job_date"
@@ -74,11 +78,32 @@
                     android:text="@string/datePostedText"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/headerTextSize16sp"
-                    android:textStyle="normal" />
+                    android:textStyle="italic" />
+
             </LinearLayout>
+
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/icon_and_company"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/remote_job_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="start"
+                android:maxLines="@integer/positionMaxLines2"
+                android:padding="@dimen/padding16dp"
+                android:text="@string/positionText"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/headerTextSize16sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

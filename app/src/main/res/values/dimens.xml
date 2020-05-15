@@ -7,4 +7,6 @@
     <dimen name="headerTextSize18sp">18sp</dimen>
     <dimen name="padding8dp">8dp</dimen>
     <dimen name="margin1dp">1dp</dimen>
+    <dimen name="width0dp">0dp</dimen>
+    <dimen name="headerTextSize16sp">16sp</dimen>
 </resources>

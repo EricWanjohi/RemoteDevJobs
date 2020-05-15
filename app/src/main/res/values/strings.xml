@@ -3,4 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="action_search">Search Jobs</string>
     <string name="positionText">Position</string>
+    <string name="companyNameText">Company</string>
+    <string name="dateText">Date</string>
+    <string name="datePostedText">Date Posted</string>
 </resources>
