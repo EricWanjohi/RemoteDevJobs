@@ -42,24 +42,28 @@ public class RemoteOkAdapter extends RecyclerView.Adapter<RemoteOkAdapter.ViewHo
         //Create Object holder...
         RemoteOkResponse remoteOkResponse = remoteOkResponses.get( position );
 
-        //Bind data
-        holder.company_name.setText( remoteOkResponse.getCompany() );
-        holder.position.setText( remoteOkResponse.getPosition() );
-        holder.date_posted.setText( remoteOkResponse.getDate() );
+        //Create Loop...
+        if (position != 0) {
+            //Bind data
+            holder.company_name.setText( remoteOkResponse.getCompany() );
+            holder.position.setText( remoteOkResponse.getPosition() );
+            holder.date_posted.setText( remoteOkResponse.getDate() );
 
-        //Bind Logo image using Picasso...
+            //Bind Logo image using Picasso...
 //        Picasso.get().load( remoteOkResponse.getLogo() )
 //                .resize( MAX_WIDTH, MAX_HEIGHT )
 //                .centerCrop()
 //                .into( holder.company_logo );
 
-        //Set item tag
-        holder.itemView.setTag( remoteOkResponse );
+            //Set item tag
+            holder.itemView.setTag( remoteOkResponse );
+        }
 
     }
 
     @Override
     public int getItemCount() {
+        //Get size...
         return remoteOkResponses.size();
     }
 
